@@ -22,9 +22,20 @@
 
       function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+        var yPosition = y + dy;
+        var xPosition = x + dx;
+
         drawBall();
         x += dx;
         y += dy;
+
+        if(yPosition > canvas.height-ballRadius || yPosition < ballRadius) {
+          dy = -dy;
+        }
+
+        if(xPosition > canvas.width-ballRadius || xPosition < ballRadius) {
+          dx = -dx;
+        }
       }
 
       function drawBall() {
